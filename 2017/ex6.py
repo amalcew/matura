@@ -43,32 +43,109 @@ def ex6_3():
         row = row.split()
         row = list(map(int, row))
         image.append(row)
-    print("---------")
-    for y in range(0, 200):
-        for x in range(0, 320):
+    for y in range(len(image)):
+        for x in range(len(image[y])):
             pixel = image[y][x]
-            # top edge
+            flag = False
             if y == 0:
                 # left top corner
                 if x == 0:
-                else:
-            # left edge
+                    check1 = abs(pixel - image[y+1][x])
+                    check2 = abs(pixel - image[y][x+1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                # top edge
+                elif x != 0 and x != 319:
+                    check1 = abs(pixel - image[y][x-1])
+                    check2 = abs(pixel - image[y+1][x])
+                    check3 = abs(pixel - image[y][x+1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                    if check3 > condition:
+                        flag = True
             if x == 0:
                 # left bottom corner
                 if y == 319:
-                else:
-            # bottom edge
+                    check1 = abs(pixel - image[y-1][x])
+                    check2 = abs(pixel - image[y][x+1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                # left edge
+                elif y != 0 and y != 199:
+                    check1 = abs(pixel - image[y-1][x])
+                    check2 = abs(pixel - image[y+1][x])
+                    check3 = abs(pixel - image[y][x+1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                    if check3 > condition:
+                        flag = True
             if y == 319:
                 # right bottom corner
                 if x == 199:
-                else:
-            # right edge
+                    check1 = abs(pixel - image[y-1][x])
+                    check2 = abs(pixel - image[y][x-1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                # bottom edge
+                elif x != 0 and x != 319:
+                    check1 = abs(pixel - image[y-1][x])
+                    check2 = abs(pixel - image[y][x-1])
+                    check3 = abs(pixel - image[y][x+1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                    if check3 > condition:
+                        flag = True
             if x == 199:
                 # right top corner
                 if y == 0:
-                else:
+                    check1 = abs(pixel - image[y][x-1])
+                    check2 = abs(pixel - image[y+1][x])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                # right edge
+                elif y != 0 and y != 199:
+                    check1 = abs(pixel - image[y-1][x])
+                    check2 = abs(pixel - image[y][x-1])
+                    check3 = abs(pixel - image[y+1][x])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                    if check3 > condition:
+                        flag = True
             # inner pixel
-            else:
+            if y != 0 and y != 199:
+                if x != 0 and x != 319:
+                    check1 = abs(pixel - image[y-1][x])
+                    check2 = abs(pixel - image[y][x-1])
+                    check3 = abs(pixel - image[y+1][x])
+                    check4 = abs(pixel - image[y][x+1])
+                    if check1 > condition:
+                        flag = True
+                    if check2 > condition:
+                        flag = True
+                    if check3 > condition:
+                        flag = True
+                    if check4 > condition:
+                        flag = True
+            if flag:
+                # print("("+str(x)+";"+str(y)+")")
+                result += 1
+    print(result)
 
 
 
