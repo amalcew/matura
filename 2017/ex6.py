@@ -12,8 +12,8 @@ def ex6_1():
                 check_min = value
             if value > check_max:
                 check_max = value
-    print("Najniższa wartość piksela: "+str(check_min))
-    print("Najniższa wartość piksela: "+str(check_max))
+    print("Exercise 6.1 min - "+str(check_min))
+    print("Exercise 6.1 max - "+str(check_max))
     data.close()
 
 
@@ -29,7 +29,7 @@ def ex6_2():
                 # print(str(row[y])+" "+str(row_reverse[y]))
                 result += 1
                 break
-    print("Ilość usuniętych wierszy: "+str(result))
+    print("Exercise 6.2 - "+str(result))
     data.close()
 
 
@@ -143,12 +143,37 @@ def ex6_3():
                     if check4 > condition:
                         flag = True
             if flag:
-                # print("("+str(x)+";"+str(y)+")")
+                # print("("+str(x+1)+";"+str(y+1)+")")
                 result += 1
-    print(result)
+    print("Exercise 6.3 - "+str(result))
+    data.close()
 
 
+def ex6_4():
+    data = open("data/dane.txt", "r")
+    image = []
+    result = 0
+    tmp = 0
+    for index in range(0, 200):
+        row = data.readline()
+        row = row.split()
+        row = list(map(int, row))
+        image.append(row)
+    for x in range(0, 320):
+        for y in range(0, 200):
+            pixel = image[y][x]
+            if y != 0:
+                if pixel == image[y-1][x]:
+                    tmp += 1
+                if pixel != image[y-1][x]:
+                    if tmp > result:
+                        result = tmp + 1
+                    tmp = 0
+    print("Exercise 6.4 - "+str(result))
+    data.close()
 
-# ex6_1()
-# ex6_2()
+
+ex6_1()
+ex6_2()
 ex6_3()
+ex6_4()
