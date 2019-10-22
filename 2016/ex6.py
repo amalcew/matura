@@ -66,7 +66,40 @@ def ex6_2():
 
 
 def ex6_3():
-    pass
+    file = open("Data/dane_6_3.txt", "r")
+    plain = []
+    encrypted = []
+    invalid_words = []
+
+    for x in range(0, 3000):
+        line = file.readline()
+        tmp = line.split()
+        plain.append(tmp[0])
+        encrypted.append(tmp[1])
+
+    for y in range(len(plain)):
+        plain_word = plain[y]
+        encrypted_word = encrypted[y]
+        keys = []
+        for z in range(len(plain_word)):
+            plain_char_ascii_code = ord(plain_word[z])
+            encrypted_word_ascii_code = ord(encrypted_word[z])
+            key = 0
+            while True:
+                plain_char_ascii_code += 1
+                key += 1
+                if plain_char_ascii_code > 90:
+                    plain_char_ascii_code = 65
+                if plain_char_ascii_code == encrypted_word_ascii_code:
+                    keys.append(key)
+                    break
+        if not all(i == keys[0] for i in keys):
+            invalid_words.append(plain_word)
+
+    for j in range(len(invalid_words)):
+        print(invalid_words[j])
+
 
 # ex6_1()
 # ex6_2()
+# ex6_3()
