@@ -51,4 +51,24 @@ def ex66_2():
     print(answer)
 
 
-ex66_2()
+def ex66_3():
+    answer = []
+    for x in range(1, 1000):
+        a = int(numbers_1[x])
+        b = int(numbers_2[x])
+        c = int(numbers_3[x])
+        tmp = []
+        tmp.append(a)
+        tmp.append(b)
+        tmp.append(c)
+        find_biggest = tmp.index(max(tmp))
+        biggest = tmp[find_biggest]
+        tmp.pop(find_biggest)
+        test = tmp[0]**2 + tmp[1]**2
+        if test == biggest**2:
+            answer.append(numbers_1[x]+" "+numbers_2[x]+" "+numbers_3[x])
+
+    print(answer)
+
+
+ex66_3()
