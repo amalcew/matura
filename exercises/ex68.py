@@ -51,3 +51,30 @@ def ex68_2():
                 k += 1
     print(k)
     file.close()
+
+
+def ex68_3():
+    file = open("data/68/dane_napisy.txt", "r")
+    lines_tmp = []
+    for x in range(0, 1000):
+        line = file.readline()
+        tmp = line.split()
+        lines_tmp.append(tmp[0])
+        lines_tmp.append((tmp[1]))
+
+    lines = []
+    for x in range(0, 2000):
+        line = lines_tmp[x]
+        line = list(line)
+        line.sort()
+        line = "".join(line)
+        lines.append(line)
+
+    k = []
+    for x in range(0, 2000):
+        count_line = lines[x]
+        how_many = lines.count(count_line)
+        k.append(how_many)
+
+    print(max(k))
+
