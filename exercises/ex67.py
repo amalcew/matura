@@ -81,4 +81,4 @@ def ex67_4():
             print(fractal[y])
 
 
-ex67_4()
+ex67_3()
