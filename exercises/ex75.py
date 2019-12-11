@@ -26,6 +26,21 @@ def encode(a, b, letter):
     return codes[code]
 
 
+def extract_key(plain_word, encrypted_word):
+    i = len(plain_word)
+    keys = []
+    for a in range(0, 26):
+        for b in range(0, 26):
+            code = letters[plain_word[0]] * a + b
+            if code > 25:
+                code = code % 26
+
+            if code == letters[encrypted_word[0]]:
+                key = [a, b]
+                keys.append(key)
+    print(keys)
+
+
 def ex75_1():
     for x in range(len(text)):
         word = text[x]
@@ -47,3 +62,15 @@ def ex75_2():
 def ex75_3():
     sample = open("data/75/probka.txt")
     sample = sample.readlines()
+    plain_words = []
+    encrypted_words = []
+    for x in range(len(sample)):
+        tmp = sample[x].split()
+        plain_words.append(tmp[0])
+        encrypted_words.append(tmp[1])
+
+    index = 0
+    extract_key(plain_words[index], encrypted_words[index])
+    # extract_key(encrypted_words[index], plain_words[index])
+
+ex75_3()
