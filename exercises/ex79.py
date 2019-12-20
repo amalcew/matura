@@ -1,3 +1,4 @@
+from math import sqrt
 file = open("data/79/okregi.txt")
 file = file.readlines()
 circles = []
@@ -53,14 +54,83 @@ def ex79_1():
 
 
 def ex79_2():
+    print("ex79.2")
+    mirror_circles = []
     for x in range(len(circles)):
         master = circles[x]
         for y in range(len(circles)):
             slave = circles[y]
             if master is not slave:
                 if master["r"] == slave["r"]:
-                    pass
+                    if master["y"] == slave["y"] and abs(master["x"]) == abs(slave["x"]):
+                        tmp = [master, slave]
+                        rev_tmp = [slave, master]
+                        if tmp not in mirror_circles and rev_tmp not in mirror_circles:
+                            mirror_circles.append(tmp)
+
+                    if master["x"] == slave["x"] and abs(master["y"]) == abs(slave["y"]):
+                        tmp = [master, slave]
+                        rev_tmp = [slave, master]
+                        if tmp not in mirror_circles and rev_tmp not in mirror_circles:
+                            mirror_circles.append(tmp)
+
+    print(len(mirror_circles))
+    print()
 
 
-# ex79_1()
+def ex79_3():
+    print("ex79.3")
+    perpendicular_circles = []
+    for x in range(len(circles)):
+        master = circles[x]
+        for y in range(len(circles)):
+            slave = circles[y]
+            if master is not slave:
+                if master["r"] == slave["r"]:
+                    if master["x"] == slave["y"] and abs(master["y"]) == slave["x"]:
+                        tmp = [master, slave]
+                        rev_tmp = [slave, master]
+                        if tmp not in perpendicular_circles and rev_tmp not in perpendicular_circles:
+                            perpendicular_circles.append(tmp)
+
+                    if master["x"] == abs(slave["y"]) and master["y"] == slave["x"]:
+                        tmp = [master, slave]
+                        rev_tmp = [slave, master]
+                        if tmp not in perpendicular_circles and rev_tmp not in perpendicular_circles:
+                            perpendicular_circles.append(tmp)
+
+                    if abs(master["x"]) == slave["y"] and master["y"] == slave["x"]:
+                        tmp = [master, slave]
+                        rev_tmp = [slave, master]
+                        if tmp not in perpendicular_circles and rev_tmp not in perpendicular_circles:
+                            perpendicular_circles.append(tmp)
+
+    print(len(perpendicular_circles))
+    print()
+
+
+def ex79_4():
+    print("ex79_4")
+    chain_length = []
+    k = 1
+    for i in range(1, len(circles)):
+        master = circles[i]
+        slave = circles[i-1]
+        dis = sqrt((master["x"] - slave["x"])**2 + (master["y"] - slave["y"])**2)
+        if dis > master["r"] + slave["r"] or dis < abs(master["r"] - slave["r"]):
+            chain_length.append(k)
+            k = 1
+        else:
+            k += 1
+
+    for x in range(len(chain_length)):
+        if chain_length[x] > 2:
+            print(chain_length[x])
+    print()
+    print("Max: " + str(max(chain_length)))
+
+
+ex79_1()
 ex79_2()
+ex79_3()
+ex79_4()
