@@ -75,11 +75,13 @@ def z4():
         if round(m_s**2, 2) == round(s[0]**2 + s[1]**2, 2):
             k += 1
     print("81.4 - "+str(k))
+    print()
 
 
 def z5():
+    print("81.5: ")
     for x in range(len(w_tr)):
-        d = {"x": w_tr[x]["c"]["x"] - round(sqrt((w_tr[x]["b"]["x"] - w_tr[x]["a"]["x"]) ** 2), 1), "y": w_tr[x]["c"]["y"] - round(sqrt((w_tr[x]["b"]["y"] - w_tr[x]["a"]["y"]) ** 2), 1)}
+        d = {"x": w_tr[x]["c"]["x"] - (w_tr[x]["b"]["x"] - w_tr[x]["a"]["x"]), "y": w_tr[x]["c"]["y"] - (w_tr[x]["b"]["y"] - w_tr[x]["a"]["y"])}
         if d["x"] == d["y"]:
             tr = w_tr[x]
             tr["d"] = d
