@@ -1,0 +1,32 @@
+a
+ Czajnik elektryczny	8
+ Lodówka	7
+ Mikrofalówka	6
+ Odkurzacz	8
+ Okap	11
+ Piekarnik	7
+ Płyta elektryczna	9
+ Płyta gazowa	9
+ Płyta indukcyjna	5
+ Pralka	8
+ Robot kuchenny	9
+ Zmywarka	8
+
+b
+ Gdańsk	14%
+ Poznań	25%
+ Szczecin	6%
+ Warszawa	49%
+ Wrocław	5%
+
+c
+ 2
+
+d
+ Górecka
+ Makowicz
+ Witkowski
+
+e
+ Maj
+ 10519

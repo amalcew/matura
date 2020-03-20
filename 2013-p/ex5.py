@@ -15,15 +15,15 @@ while True:
 
 file = open("data/dane.txt")
 file = file.readlines()
-answer = open("odp.txt", "w")
+answer = open("zadanie5.txt", "w")
 answer.close()
 numbers = []
 for line in file:
     numbers.append(int(line))
 
 # task 1
-answer = open("odp.txt", "a")
-answer.write("Zadanie 1\n")
+answer = open("zadanie5.txt", "a")
+answer.write("a\n")
 answer.close()
 correct = []
 for x in range(len(numbers)):
@@ -31,20 +31,20 @@ for x in range(len(numbers)):
     if number in fibonacci:
         # print(number)
         correct.append(number)
-        answer = open("odp.txt", "a")
+        answer = open("zadanie5.txt", "a")
         answer.write(str(number)+"\n")
         answer.close()
 
 # task 2
-answer = open("odp.txt", "a")
-answer.write("\nZadanie 2\n")
-answer.write("min: "+str(min(correct))+"\n")
-answer.write("max: "+str(max(correct))+"\n")
+answer = open("zadanie5.txt", "a")
+answer.write("\nb\n")
+answer.write(str(min(correct))+"\n")
+answer.write(str(max(correct))+"\n")
 answer.close()
 
 # task 3
-answer = open("odp.txt", "a")
-answer.write("\nZadanie 3\n")
+answer = open("zadanie5.txt", "a")
+answer.write("\nc\n")
 answer.close()
 sequence = []
 for x in range(len(correct)):
@@ -65,7 +65,7 @@ for x in range(len(correct)):
         sequence = tmp
 
 for x in range(len(sequence)):
-    answer = open("odp.txt", "a")
+    answer = open("zadanie5.txt", "a")
     answer.write(str(sequence[x])+"\n")
     answer.close()
 

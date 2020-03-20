@@ -1,0 +1,80 @@
+a)
+Klasa
+IIa
+IIb
+IIIa
+IIIb
+IIIc
+
+b)
+Nazwa
+Ogólnopolska Olimpiada Historyczna
+Olimpiada Biologiczna
+Olimpiada Geograficzna
+Olimpiada Matematyczna
+Olimpiada Wiedzy o Państwie i Prawie
+
+c)
+Imię	Nazwisko	SumaOfpunkty
+Abelia	Lebiodka	1
+Abina	Fiołek	29
+Adamnan	Lilia	48
+Adra	Gorczyca	37
+Amparo	Rumianek	44
+Apostazja	Pokrzywa	71
+Arlena	Len	49
+Balladyna	Chmiel	73
+Biryn	Przylaszczka	69
+Boromeusz	Malina	9
+Borys	Pokrzyk	3
+Bułat	Dziewanna	35
+Dafroza	Kosaciec	1
+Ezio	Fikus	8
+Fiebrosław	Gęsiówka	32
+Filip	Dziurawiec	136
+Irydion	Tulipan	7
+JanKanty	Asparagus	38
+Jurata	Komosa	15
+Klet	Chaber	8
+Ksaweryna	Mięta	11
+Maja	Bluszcz	40
+Piotr	Mniszek	6
+Stefan	Powój	65
+Tupak	Ostróżka	61
+Wadim	Niezapominajka	8
+
+d)
+Klasa	SumaOfpunkty
+Ia	207
+Ib	265
+Ic	154
+IIa	56
+IIb	60
+IIc	83
+IIIa	30
+IIIb	47
+IIIc	2
+
+e)
+Klasa	procent
+Ia	71.43%
+Ib	62.07%
+Ic	80.00%
+IIa	40.91%
+IIb	33.33%
+IIc	57.14%
+IIIa	16.00%
+IIIb	29.17%
+IIIc	13.33%
+
+f)
+Klasa	procent
+Ia	28.57%
+Ib	37.93%
+Ic	20.00%
+IIa	59.09%
+IIb	66.67%
+IIc	42.86%
+IIIa	84.00%
+IIIb	70.83%
+IIIc	86.67%
