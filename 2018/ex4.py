@@ -1,68 +1,52 @@
-def zadanie4_1():
-    wega = open("dane_matury_probne/sygnaly.txt", 'r')
-    answer = open("wyniki4.txt", 'w')
-    answer.write("4.1 - ")
-
-    x = 1
-    while x <= 1000:
-        a = x % 40
-        if a == 0:
-            line = wega.readline()
-            for c in line[9:10:1]:
-                answer.write(c)
-            x += 1
-        wega.readline()
-        x += 1
-
-    wega.close()
-    answer.close()
+# initialize data
+file = open("data/sygnaly.txt")
+file = file.readlines()
+data = []
+for line in file:
+    data.append(line.rstrip())
 
 
-def zadanie4_2():
-    wega = open("dane_matury_probne/sygnaly.txt", 'r')
-    answer = open("wyniki4.txt", 'a')
-    answer.write("\n4.2 - ")
+def ex4_1():
+    print("4.1")
+    answer = []
+    for x in range(len(data)):
+        if (x+1) % 40 == 0:
+            answer.append(data[x][9])
+    print(''.join(answer))
+    print()
 
+
+def ex4_2():
+    print("4.2")
     words = []
-    chars = []
-
-    for x in range(1, 1000):
-        line = wega.readline()
-        line = line[:-1]
-        unique_chars = len(set(line))
-        words.append(line + " " + str(unique_chars))
-        chars.append(unique_chars)
-
-    max_value = max(chars)
-    max_index = chars.index(max_value)
-    answer.write(words[max_index])
-
-    wega.close()
-    answer.close()
-
-
-def zadanie4_3():
-    wega = open("dane_matury_probne/sygnaly.txt", 'r')
-    answer = open("wyniki4.txt", 'a')
-    answer.write("\n4.3 - \n")
-
-    ascii_chars = []
-    for x in range(1, 1000):
-        line = wega.readline()
-        for c in line:
-            ascii_chars.append(ord(c))
-        ascii_chars.pop()
-        # print(ascii_chars)
-        if max(ascii_chars) - min(ascii_chars) <= 10:
-            # print(line)
-            answer.write(line)
-        ascii_chars.clear()
-
-    wega.close()
-    answer.close()
+    lengths = []
+    for x in range(len(data)):
+        word = data[x]
+        word_unique = set(word)
+        # print(word_unique)
+        words.append(str(len(word_unique))+" "+str(word))
+        lengths.append(len(word_unique))
+    m = max(lengths)
+    for x in range(len(words)):
+        s = words[x].split()
+        if int(s[0]) == m:
+            print(str(s[1])+" "+str(s[0]))
+            break
+    print()
 
 
-if __name__ == '__main__':
-    zadanie4_1()
-    zadanie4_2()
-    zadanie4_3()
+def ex4_3():
+    print("4.3")
+    for x in range(len(data)):
+        word = data[x]
+        word_list = list(word)
+        order = []
+        for y in range(len(word_list)):
+            order.append(ord(word_list[y]))
+        if max(order) - min(order) <= 10:
+            print(word)
+
+
+ex4_1()
+ex4_2()
+ex4_3()
